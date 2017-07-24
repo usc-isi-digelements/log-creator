@@ -17,6 +17,18 @@ limitations under the License.
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../lodash.html">
 
+<!--
+A Polymer Element that creates string log messages from object collections.
+### Example
+```html
+<log-creator
+    object="{{Collection}}"
+    log-message="{{logMessage}}">
+</log-creator>
+```
+@demo demo/index.html
+-->
+
 <dom-module id="log-creator">
   <template>
   </template>
@@ -30,6 +42,16 @@ limitations under the License.
       is: 'log-creator',
 
       properties: {
+        /**
+         * (Optional)
+         *
+         * Function to use for the structure of the object property. If function is left as
+         * default, function will take one parameters (collection) and structure
+         * a new array of strings
+         *
+         * @type {Object}
+         * @default {{Function(collection)}}
+         */
         objectStructureFunction: {
           type: Object,
           value: function() {
@@ -54,9 +76,23 @@ limitations under the License.
             };
           }
         },
+        /**
+         * (Required)
+         *
+         * The object collection to create a log message from.
+         *
+         * @type {Object}
+         */
         object: {
           type: Object
         },
+        /**
+         * (Required)
+         *
+         * The generated log message string in the format: {category:[\"data\"]}
+         *
+         * @type {String}
+         */
         logMessage: {
           type: String,
           notify: true

@@ -15,14 +15,14 @@ limitations under the License.
 -->
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../lodash.html">
+<link rel="import" href="../lodash-import/lodash.html">
 
 <!--
 A Polymer Element that creates string log messages from object collections.
 ### Example
 ```html
 <log-creator
-    object="{{Collection}}"
+    object="{{collection}}"
     log-message="{{logMessage}}">
 </log-creator>
 ```
@@ -47,7 +47,15 @@ A Polymer Element that creates string log messages from object collections.
          *
          * Function to use for the structure of the object property. If function is left as
          * default, function will take one parameters (collection) and structure
-         * a new array of strings
+         * a new array of strings. By default the Object.base format will be either a collection
+         * of arrays or a collection of Objects in the following format:
+         *
+         *{<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;category: "City",<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;enabled: true,<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;key: "Mountain View",<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;text: "Mountain View"<br/>
+         * }
          *
          * @type {Object}
          * @default {{Function(collection)}}
@@ -67,7 +75,7 @@ A Polymer Element that creates string log messages from object collections.
                   var element = collection[keys[i]];
 
                   if(element.enabled) {
-                    elements.push(element.key);
+                    elements.push(element.text);
                   }
                 }
               }
@@ -89,7 +97,13 @@ A Polymer Element that creates string log messages from object collections.
         /**
          * (Required)
          *
-         * The generated log message string in the format: {category:[\"data\"]}
+         * The generated log message string in the format:
+         *
+         *{<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;category-1: [\"data\"],<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;category-2: [\"data\"],<br/>
+         *  &nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+         *}
          *
          * @type {String}
          */

@@ -5,7 +5,7 @@ A Polymer Element that creates string log messages from object collections.
 ### Example
 ```html
 <log-creator
-    object="{{Collection}}"
+    object="{{collection}}"
     log-message="{{logMessage}}">
 </log-creator>
 ```

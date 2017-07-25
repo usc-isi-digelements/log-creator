@@ -105,476 +105,167 @@ limitations under the License.
       }, 'date_start'), '');
     });
 
-    test('_createLogMessage() sets logMessage correctly', function() {
-      element.ageSelected = {
-        '30': {
-          category: 'Age',
-          enabled: true,
-          key: '30',
-          text: '30'
-        }
-      };
-      element.citySelected = {
-        LA: {
-          category: 'City',
-          enabled: true,
-          key: 'LA',
-          text: 'Los Angeles'
-        }
-      };
-      element.countrySelected = {
-        US: {
-          category: 'Country',
-          enabled: false,
-          key: 'US',
-          text: 'United States'
-        }
+    test('_createLogMessage() sets logMessage correctly for an array', function() {
+      var collection = {
+        base: {
+          age: ['30, 40'],
+          city: ['Los Angeles'],
+          country: ['United States'] 
+        }       
       };
 
-      element._createLogMessage();
+      element._createLogMessage(collection);
 
-      assert.equal(element.logMessage, '{age:["30"],city:["Los Angeles"]}');
+      assert.equal(element.logMessage, '{age:["30, 40"],city:["Los Angeles"],country:["United States"]}');
     });
 
-    test('_createLogMessage() sets logMessage correctly for all properties', function() {
-      element.ageSelected = {
-        '30': {
-          category: 'Age',
-          enabled: true,
-          key: '30',
-          text: '30'
-        }
-      };
-      element.citySelected = {
-        LA: {
-          category: 'City',
-          enabled: true,
-          key: 'LA',
-          text: 'Los Angeles'
-        }
-      };
-      element.countrySelected = {
-        US: {
-          category: 'Country',
-          enabled: true,
-          key: 'US',
-          text: 'United States'
-        }
-      };
-      element.dateStartSelected = {
-        dateStart: {
-          category: 'From',
-          date: '2017-04-03T00:00:00',
-          enabled: true,
-          key: 'dateStart',
-          text: '04/03/2017'
-        },
-        dateEnd: {
-          category: 'To',
-          date: '2017-04-05T00:00:00',
-          enabled: true,
-          key: 'dateEnd',
-          text: '04/05/2017'
-        }
-      };
-      element.dateEndSelected = {
-        dateStart: {
-          category: 'From',
-          date: '2017-04-03T00:00:00',
-          enabled: true,
-          key: 'dateStart',
-          text: '04/03/2017'
-        },
-        dateEnd: {
-          category: 'To',
-          date: '2017-04-05T00:00:00',
-          enabled: true,
-          key: 'dateEnd',
-          text: '04/05/2017'
-        }
-      };
-      element.descriptionSelected = {
-        'some description here': {
-          category: 'Description',
-          enabled: true,
-          key: 'some description here',
-          text: 'some description here'
-        }
-      };
-      element.emailSelected = {
-        'someemail@xyz.com': {
-          category: 'Email',
-          enabled: true,
-          key: 'someemail@xyz.com',
-          text: 'someemail@xyz.com'
-        }
-      };
-      element.ethnicitySelected = {
-        'some key': {
-          category: 'Ethnicity',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.eyeSelected = {
-        'some key': {
-          category: 'Eye Color',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.genderSelected = {
-        'some key': {
-          category: 'Gender',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.hairSelected = {
-        'some key': {
-          category: 'Hair Color',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.heightSelected = {
-        'some key': {
-          category: 'Height',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.imageSelected = {
-        'some key': {
-          category: 'Image',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.locationSelected = {
-        'some key': {
-          category: 'Location',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.nameSelected = {
-        'some key': {
-          category: 'Name',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.phoneSelected = {
-        '1112223333': {
-          category: '1112223333',
-          enabled: true,
-          key: '1112223333',
-          text: '1112223333'
-        }
-      };
-      element.priceSelected = {
-        'some key': {
-          category: 'some key',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.regionSelected = {
-        'some key': {
-          category: 'Region',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.reviewSelected = {
-        'some key': {
-          category: 'some key',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.servicesSelected = {
-        'some key': {
-          category: 'Services',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.socialSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.titleSelected = {
-        'some key': {
-          category: 'Title',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.websiteSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.weightSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
+    test('_createLogMessage() sets logMessage correctly for a object', function() {
+      var collection = {
+        base: {
+          age: {
+            '30':{
+              category: 'Age',
+              enabled: true,
+              key: '30',
+              text: '30'
+            }
+          },
+          city: {
+            'Los Angeles': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'Los Angeles'
+            },
+            'Mountain View': {
+              category: 'City',
+              enabled: false,
+              key: 'LA',
+              text: 'Mountain View'
+            },
+            'New York': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'New York'
+            }
+          },
+          country: {
+            'United States': {
+              category: 'Country',
+              enabled: true,
+              key: 'US',
+              text: 'United States'
+            }
+          },
+          date_start: {
+            '04/03/2017': {
+              category: 'date_start',
+              date: '2017-04-03T00:00:00',
+              enabled: true,
+              key: 'dateStart',
+              text: '04/03/2017'
+            }
+          },
+          date_end: {
+            '04/03/2017': {
+              category: 'date_end',
+              date: '2017-04-05T00:00:00',
+              enabled: false,
+              key: 'dateEnd',
+              text: '04/05/2017'
+            }
+          },
+          description: {
+            'some description here': {
+              category: 'Description',
+              enabled: true,
+              key: 'some description here',
+              text: 'some description here'
+            }
+          }
         }
       };
 
-      element._createLogMessage();
+      element._createLogMessage(collection);
 
-      assert.equal(element.logMessage, '{age:["30"],city:["Los Angeles"],country:["United States"],' +
-        'date_end:["04/05/2017"],date_start:["04/03/2017"],description:["some description here"],' +
-        'email:["someemail@xyz.com"],ethnicity:["some key"],eye_color:["some key"],gender:["some key"],' +
-        'hair_color:["some key"],height:["some key"],image:["some key"],location:["some key"],' +
-        'name:["some key"],phone:["1112223333"],price:["some key"],state_or_region:["some key"],' +
-        'review:["some key"],services:["some key"],social:["some key"],' +
-        'title:["some key"],website:["some key"],weight:["some key"]}');
+      assert.equal(element.logMessage, '{age:["30"],city:["Los Angeles","New York"],country:["United States"],' +
+        'date_start:["04/03/2017"],description:["some description here"]}');
     });
 
     test('_createLogMessage() as an observer functions correctly', function() {
-      element.ageSelected = {
-        '30': {
-          category: 'Age',
-          enabled: true,
-          key: '30',
-          text: '30'
-        }
-      };
-      element.citySelected = {
-        LA: {
-          category: 'City',
-          enabled: true,
-          key: 'LA',
-          text: 'Los Angeles'
-        }
-      };
-      element.countrySelected = {
-        US: {
-          category: 'Country',
-          enabled: true,
-          key: 'US',
-          text: 'United States'
-        }
-      };
-      element.dateStartSelected = {
-        dateStart: {
-          category: 'From',
-          date: '2017-04-03T00:00:00',
-          enabled: true,
-          key: 'dateStart',
-          text: '04/03/2017'
-        },
-        dateEnd: {
-          category: 'To',
-          date: '2017-04-05T00:00:00',
-          enabled: true,
-          key: 'dateEnd',
-          text: '04/05/2017'
-        }
-      };
-      element.dateEndSelected = {
-        dateStart: {
-          category: 'From',
-          date: '2017-04-03T00:00:00',
-          enabled: true,
-          key: 'dateStart',
-          text: '04/03/2017'
-        },
-        dateEnd: {
-          category: 'To',
-          date: '2017-04-05T00:00:00',
-          enabled: true,
-          key: 'dateEnd',
-          text: '04/05/2017'
-        }
-      };
-      element.descriptionSelected = {
-        'some description here': {
-          category: 'Description',
-          enabled: true,
-          key: 'some description here',
-          text: 'some description here'
-        }
-      };
-      element.emailSelected = {
-        'someemail@xyz.com': {
-          category: 'Email',
-          enabled: true,
-          key: 'someemail@xyz.com',
-          text: 'someemail@xyz.com'
-        }
-      };
-      element.ethnicitySelected = {
-        'some key': {
-          category: 'Ethnicity',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.eyeSelected = {
-        'some key': {
-          category: 'Eye Color',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.genderSelected = {
-        'some key': {
-          category: 'Gender',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.hairSelected = {
-        'some key': {
-          category: 'Hair Color',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.heightSelected = {
-        'some key': {
-          category: 'Height',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.imageSelected = {
-        'some key': {
-          category: 'Image',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.locationSelected = {
-        'some key': {
-          category: 'Location',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.nameSelected = {
-        'some key': {
-          category: 'Name',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.phoneSelected = {
-        '1112223333': {
-          category: '1112223333',
-          enabled: true,
-          key: '1112223333',
-          text: '1112223333'
-        }
-      };
-      element.priceSelected = {
-        'some key': {
-          category: 'some key',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.regionSelected = {
-        'some key': {
-          category: 'Region',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.reviewSelected = {
-        'some key': {
-          category: 'some key',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.servicesSelected = {
-        'some key': {
-          category: 'Services',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.socialSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.titleSelected = {
-        'some key': {
-          category: 'Title',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.websiteSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
-        }
-      };
-      element.weightSelected = {
-        'some key': {
-          category: 'some category',
-          enabled: true,
-          key: 'some key',
-          text: 'some key'
+      var collection = {
+        base: {
+          age: {
+            '30':{
+              category: 'Age',
+              enabled: true,
+              key: '30',
+              text: '30'
+            }
+          },
+          city: {
+            'Los Angeles': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'Los Angeles'
+            },
+            'Mountain View': {
+              category: 'City',
+              enabled: false,
+              key: 'LA',
+              text: 'Mountain View'
+            },
+            'New York': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'New York'
+            }
+          },
+          country: {
+            'United States': {
+              category: 'Country',
+              enabled: true,
+              key: 'US',
+              text: 'United States'
+            }
+          },
+          date_start: {
+            '04/03/2017': {
+              category: 'date_start',
+              date: '2017-04-03T00:00:00',
+              enabled: true,
+              key: 'dateStart',
+              text: '04/03/2017'
+            }
+          },
+          date_end: {
+            '04/03/2017': {
+              category: 'date_end',
+              date: '2017-04-05T00:00:00',
+              enabled: true,
+              key: 'dateEnd',
+              text: '04/05/2017'
+            }
+          },
+          description: {
+            'some description here': {
+              category: 'Description',
+              enabled: true,
+              key: 'some description here',
+              text: 'some description here'
+            }
+          }
         }
       };
 
+      element.object = collection;
+
       flush(function(done) {
-        assert.equal(element.logMessage, '{age:["30"],city:["Los Angeles"],country:["United States"],' +
-        'date_end:["04/05/2017"],date_start:["04/03/2017"],description:["some description here"],' +
-        'email:["someemail@xyz.com"],ethnicity:["some key"],eye_color:["some key"],gender:["some key"],' +
-        'hair_color:["some key"],height:["some key"],image:["some key"],location:["some key"],' +
-        'name:["some key"],phone:["1112223333"],price:["some key"],state_or_region:["some key"],' +
-        'review:["some key"],services:["some key"],social:["some key"],' +
-        'title:["some key"],website:["some key"],weight:["some key"]}');
+        assert.equal(element.logMessage, '{age:["30"],city:["Los Angeles","New York"],country:["United States"],' +
+        'date_start:["04/03/2017"],date_end:["04/05/2017"],description:["some description here"]}');
         done();
       });
     });

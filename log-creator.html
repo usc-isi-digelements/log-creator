@@ -117,6 +117,12 @@ A Polymer Element that creates string log messages from object collections.
         '_createLogMessage(object.*)'
       ],
 
+      /**
+       * Creates the log message from the specified object.
+       *
+       * @return {String}
+       * @private
+       */
       _createLogMessage: function(object) {
         var list = [];
         var base = object.base;
@@ -140,6 +146,12 @@ A Polymer Element that creates string log messages from object collections.
         }
       },
 
+      /**
+       * Formats the text and category.
+       *
+       * @return {String}
+       * @private
+       */
       _getSelectedString: function(selected, category) {
         if(!selected) {
           return '';

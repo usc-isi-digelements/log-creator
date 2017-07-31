@@ -19,13 +19,15 @@ limitations under the License.
 
 <!--
 A Polymer Element that creates string log messages from object collections.
+
 ### Example
 ```html
 <log-creator
-    object="{{collection}}"
+    object="[[collection]]"
     log-message="{{logMessage}}">
 </log-creator>
 ```
+
 @demo demo/index.html
 -->
 
@@ -84,6 +86,7 @@ A Polymer Element that creates string log messages from object collections.
             };
           }
         },
+
         /**
          * (Required)
          *
@@ -94,8 +97,9 @@ A Polymer Element that creates string log messages from object collections.
         object: {
           type: Object
         },
+
         /**
-         * (Required)
+         * (Output)
          *
          * The generated log message string in the format:
          *
@@ -163,6 +167,7 @@ A Polymer Element that creates string log messages from object collections.
           list = selected;
         } else if(_.isObject(selected)) {
           list = _.keys(selected).filter(function(key) {
+            // TODO Make generic
             // both start and end dates are kept in facetSelection.postingDate
             // logic here helps to distinguish which date was updated
             if((category === 'date_start' && key !== 'dateStart') ||

@@ -47,6 +47,19 @@ A Polymer Element that creates string log messages from object collections.
         /**
          * (Optional)
          *
+         * The default log message to ignore.
+         *
+         * @type {String}
+         * @default '{}'
+         */
+        defaultLog: {
+          type: String,
+          value: '{}'
+        },
+
+        /**
+         * (Optional)
+         *
          * Function to use for the structure of the object property. If function is left as
          * default, function will take one parameters (collection) and structure
          * a new array of strings. By default the Object.base format will be either a collection
@@ -145,7 +158,7 @@ A Polymer Element that creates string log messages from object collections.
           return !!value;
         }).join(',') + '}';
 
-        if(logMessage !== this.logMessage && logMessage !== '{text:""}') {
+        if(logMessage !== this.logMessage && logMessage !== this.defaultLog) {
           this.set('logMessage', logMessage);
         }
       },

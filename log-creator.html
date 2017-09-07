@@ -141,6 +141,9 @@ A Polymer Element that creates string log messages from object collections.
        * @private
        */
       _createLogMessage: function(object) {
+        if(!object) {
+          return;
+        }
         var list = [];
         var base = object.base;
         var self = this;

@@ -16,117 +16,118 @@ limitations under the License.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
   <link rel="import" href="../log-creator.html">
 </head>
 
 <body unresolved>
-  <template is="dom-bind" id="demo">
-    <style>
-      div {
-        padding-left: 20px
-      }
-    </style>
-    collection = {
-    <div>age: {
-      <div>'30':{ category: 'Age', enabled: true, key: '30', text: '30'}</div>
-    },</div>
-    <div>city: {
-      <div>'Los Angeles': { category: 'City', enabled: true, key: 'LA', text: 'Los Angeles'},</div>
-      <div>'Mountain View': { category: 'City', enabled: false, key: 'LA', text: 'Mountain View'},</div>
-      <div>'New York': { category: 'City', enabled: true, key: 'LA', text: 'New York'}</div>
-    },</div>
-    <div>country: {
-      <div>'United States': { category: 'Country', enabled: true, key: 'US', text: 'United States'}</div>
-    },</div>
-    <div>date_start: {
-      <div>'04/03/2017': { category: 'date_start', date: '2017-04-03T00:00:00', enabled: true, key: 'dateStart', text: '04/03/2017'}</div>
-    },</div>
-    <div>date_end: {
-      <div>'04/05/2017': { category: 'date_end', date: '2017-04-05T00:00:00', enabled: true, key: 'dateEnd', text: '04/05/2017'}</div>
-    },</div>
-    <div>description: {
-      <div>'some description here': { category: 'Description', enabled: true, key: 'some description here', text: 'some description here'}</div> 
-    }</div>
-    };
-
-    </br></br>
-
-    <log-creator
-      object="[[collection]]"
-      log-message="{{logMessage}}">
-    </log-creator>
-    
-    <p>logMessage = [[logMessage]]</p>
-  </template>
-<script>
-    (function(document) {
-      var demo = document.querySelector('#demo');
-      var collection = {
-        age: {
-          '30':{
-            category: 'Age',
-            enabled: true,
-            key: '30',
-            text: '30'
-          }
-        },
-        city: {
-          'Los Angeles': {
-            category: 'City',
-            enabled: true,
-            key: 'LA',
-            text: 'Los Angeles'
+  <dom-bind>
+    <script>
+      (function(document) {
+        var domBind = document.querySelector('dom-bind');
+        domBind.collection = {
+          age: {
+            '30':{
+              category: 'Age',
+              enabled: true,
+              key: '30',
+              text: '30'
+            }
           },
-          'Mountain View': {
-            category: 'City',
-            enabled: false,
-            key: 'LA',
-            text: 'Mountain View'
+          city: {
+            'Los Angeles': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'Los Angeles'
+            },
+            'Mountain View': {
+              category: 'City',
+              enabled: false,
+              key: 'LA',
+              text: 'Mountain View'
+            },
+            'New York': {
+              category: 'City',
+              enabled: true,
+              key: 'LA',
+              text: 'New York'
+            }
           },
-          'New York': {
-            category: 'City',
-            enabled: true,
-            key: 'LA',
-            text: 'New York'
+          country: {
+            'United States': {
+              category: 'Country',
+              enabled: true,
+              key: 'US',
+              text: 'United States'
+            }
+          },
+          date_start: {
+            '04/03/2017': {
+              category: 'date_start',
+              date: '2017-04-03T00:00:00',
+              enabled: true,
+              key: 'dateStart',
+              text: '04/03/2017'
+            }
+          },
+          date_end: {
+            '04/05/2017': {
+              category: 'date_end',
+              date: '2017-04-05T00:00:00',
+              enabled: true,
+              key: 'dateEnd',
+              text: '04/05/2017'
+            }
+          },
+          description: {
+            'some description here': {
+              category: 'Description',
+              enabled: true,
+              key: 'some description here',
+              text: 'some description here'
+            }
           }
-        },
-        country: {
-          'United States': {
-            category: 'Country',
-            enabled: true,
-            key: 'US',
-            text: 'United States'
-          }
-        },
-        date_start: {
-          '04/03/2017': {
-            category: 'date_start',
-            date: '2017-04-03T00:00:00',
-            enabled: true,
-            key: 'dateStart',
-            text: '04/03/2017'
-          }
-        },
-        date_end: {
-          '04/05/2017': {
-            category: 'date_end',
-            date: '2017-04-05T00:00:00',
-            enabled: true,
-            key: 'dateEnd',
-            text: '04/05/2017'
-          }
-        },
-        description: {
-          'some description here': {
-            category: 'Description',
-            enabled: true,
-            key: 'some description here',
-            text: 'some description here'
-          }
+        };
+      })(document);
+    </script>
+    <template is="dom-bind" id="demo">
+      <style>
+        div {
+          padding-left: 20px
         }
+      </style>
+      collection = {
+      <div>age: {
+        <div>'30':{ category: 'Age', enabled: true, key: '30', text: '30'}</div>
+      },</div>
+      <div>city: {
+        <div>'Los Angeles': { category: 'City', enabled: true, key: 'LA', text: 'Los Angeles'},</div>
+        <div>'Mountain View': { category: 'City', enabled: false, key: 'LA', text: 'Mountain View'},</div>
+        <div>'New York': { category: 'City', enabled: true, key: 'LA', text: 'New York'}</div>
+      },</div>
+      <div>country: {
+        <div>'United States': { category: 'Country', enabled: true, key: 'US', text: 'United States'}</div>
+      },</div>
+      <div>date_start: {
+        <div>'04/03/2017': { category: 'date_start', date: '2017-04-03T00:00:00', enabled: true, key: 'dateStart', text: '04/03/2017'}</div>
+      },</div>
+      <div>date_end: {
+        <div>'04/05/2017': { category: 'date_end', date: '2017-04-05T00:00:00', enabled: true, key: 'dateEnd', text: '04/05/2017'}</div>
+      },</div>
+      <div>description: {
+        <div>'some description here': { category: 'Description', enabled: true, key: 'some description here', text: 'some description here'}</div> 
+      }</div>
       };
-      demo.collection = collection;
-    })(document);
-  </script>
+
+      </br></br>
+
+      <log-creator
+        object="[[collection]]"
+        log-message="{{logMessage}}">
+      </log-creator>
+      
+      <p>logMessage = [[logMessage]]</p>
+    </template>
+  </dom-bind>
 </body>

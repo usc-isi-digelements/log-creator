@@ -1,15 +1,16 @@
 {
   "name": "log-creator",
   "description": "A Polymer Element that creates string log messages from object collections.",
-  "version": "1.0.2",
-  "authors": ["Next Century Corporation"],
-  "license": "Apache-2.0",
+  "version": "1.0.3",
+  "authors": [
+    "Next Century Corporation"
+  ],
+  "license": "http://polymer.github.io/LICENSE.txt",
   "keywords": [
     "web-component",
     "polymer"
   ],
   "main": "log-creator.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/DigElements/log-creator/",
   "ignore": [
     "/.*",
@@ -17,10 +18,13 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.7.0",
-    "lodash": "~4.17.2"
+    "lodash-import": "DigElements/lodash-import#1.0.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
     "web-component-tester": "^5.0.0"
+  },
+  "resolutions": {
+    "lodash": "~4.17.2"
   }
 }

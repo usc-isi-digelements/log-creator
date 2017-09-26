@@ -161,9 +161,13 @@ A Polymer Element that creates string log messages from object collections.
           return !!value;
         }).join(',') + '}';
 
-        if(logMessage !== this.logMessage && logMessage !== this.defaultLog) {
-          this.set('logMessage', logMessage);
+        // Do not set the logMessage if it equals the previous logMessage.
+        // Do not set the logMessage to the defaultLog if the previous logMessage is undefined.
+        if(logMessage === this.logMessage || (logMessage === this.defaultLog && _.isUndefined(this.logMessage))) {
+          return;
         }
+
+        this.set('logMessage', logMessage);
       },
 
       /**

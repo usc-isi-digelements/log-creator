@@ -1,11 +1,11 @@
 {
   "name": "log-creator",
   "description": "A Polymer Element that creates string log messages from object collections.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "authors": [
     "Next Century Corporation"
   ],
-  "license": "http://polymer.github.io/LICENSE.txt",
+  "license": "Apache-2.0",
   "keywords": [
     "web-component",
     "polymer"
